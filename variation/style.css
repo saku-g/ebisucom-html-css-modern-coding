@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/* 基本 */
+body {
+  margin: 0;
+  background-color: #eee;
+}
+
+img {
+  display: block;
+}
+
+/* 横幅と左右の余白 */
+.w-container {
+  width: min(92%, 1166px);
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr min(92%, 1166px) 1fr;
+
+  > * {
+    grid-column: 2;
+  }
+}
+
+/* ヘッダー */
+.header {
+  height: 112px;
+  background-color: #fff;
+}
+
+.header-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr;
+  align-items: center;
+  column-gap: 12px;
+  height: 100%;
+}
+
+/* ナビゲーションボタン */
+.navBtn {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 30px;
+}
