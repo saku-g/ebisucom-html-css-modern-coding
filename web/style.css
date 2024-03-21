@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 /* 基本 */
+:root {
+  --v-space: clamp(90px, 9vw, 120px);
+}
+
 body {
   margin: 0;
   background-color: #eee;
@@ -42,6 +46,7 @@ img {
 .w-container {
   width: min(92%, 1166px);
   margin-inline: auto;
+  position: relative;
 }
 
 /* ヘッダー */
@@ -113,7 +118,7 @@ img {
 
 /* 画像とテキスト */
 .imgtext {
-  padding-block: clamp(90px, 9vw, 120px);
+  padding-block: var(--v-space);
   background-color: #fff;
 }
 
@@ -150,7 +155,7 @@ img {
 /* タイトルとサブタイトル */
 .heading-decoration {
   font-size: clamp(30px, 3vw, 40px);
-  /* min-height: 0vw; */
+  min-height: 0vw;
   font-weight: 400;
 }
 
@@ -168,5 +173,69 @@ img {
   margin-bottom: 2em;
   color: #707070;
   font-family: 'montserrat', sans-serif;
+  font-size: 18px;
+}
+
+/* 記事一覧 */
+.posts {
+  padding-block: var(--v-space);
+  background-color: #f3f1ed;
+}
+
+.posts-container {
+  --columns: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 32px 25px;
+}
+
+@media (min-width: 768px) {
+  .posts-container {
+    --columns: 3;
+  }
+}
+
+/* 記事 */
+.post a {
+  display: block;
+}
+
+.post h3 {
+  margin-block: 1em 0.5em;
+  font-size: clamp(12px, 2vw, 20px);
+  min-height: 0vw;
+}
+
+.post p {
+  max-width: 20em;
+  font-size: clamp(10px, 1.6vw, 14px);
+  min-height: 0vw;
+}
+
+.post img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+@supports not (aspect-ratio: 3/2) {
+  .post img {
+    height: 180px;
+  }
+}
+
+/* パーツの見出し */
+.heading {
+  position: absolute;
+  top: calc((var(--v-space) + 0.6em) * -1);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(40px, 5.2vw, 70vw);
+  min-height: 0;
+  font-weight: 300;
+}
+
+.heading span {
+  display: block;
+  color: #707070;
   font-size: 18px;
 }
