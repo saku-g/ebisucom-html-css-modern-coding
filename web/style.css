@@ -19,8 +19,11 @@ h4,
 h5,
 h6,
 p,
-figure {
+figure,
+ul {
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 p {
@@ -238,4 +241,84 @@ img {
   display: block;
   color: #707070;
   font-size: 18px;
+}
+
+/* フッター */
+.footer {
+  padding-block: 70px;
+  background-color: #fff;
+  color: #707070;
+  font-size: 13px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template:
+    'site' auto
+    'sns' auto
+    'menu' auto
+    'copy' auto
+    / 1fr;
+  row-gap: 50px;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    grid-template:
+      'site sns' auto
+      '. sns' auto
+      'menu sns' auto
+      'copy sns' auto
+      / 1fr max-content;
+    gap: 20px;
+  }
+
+  .footer-container > *:not(.footer-sns) {
+    justify-self: start;
+  }
+
+  .footer-container > .footer-sns {
+    justify-self: end;
+    align-self: center;
+  }
+}
+
+.footer-site {
+  grid-area: site;
+}
+
+.footer-sns {
+  grid-area: sns;
+  display: flex;
+  column-gap: 24px;
+  font-size: 24px;
+}
+
+.footer-sns a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  aspect-ratio: 1 / 1;
+  background-color: #ccc;
+  color: #fff;
+  clip-path: circle(50%);
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  .footer-sns a {
+    height: 36px;
+  }
+}
+
+.footer-menu {
+  grid-area: menu;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-copy {
+  grid-area: copy;
 }
