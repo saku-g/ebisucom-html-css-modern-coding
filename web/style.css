@@ -76,6 +76,71 @@ img {
   font-size: 30px;
 }
 
+.open .navBtn {
+  z-index: 110;
+  color: #fff;
+}
+
+.navBtn .fa-bars {
+  display: revert;
+}
+
+.open .navBtn .fa-bars {
+  display: none;
+}
+
+.navBtn .fa-xmark {
+  display: none;
+}
+
+.open .navBtn .fa-xmark {
+  display: revert;
+}
+
+@media (min-width: 768px) {
+  .navBtn {
+    display: none;
+  }
+}
+
+/* ナビゲーションメニュー：モバイル */
+@media (max-width: 767px) {
+  .nav {
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    z-index: 100;
+    background-color: rgb(78 72 58 / 90%);
+    transition: transform 0.3s;
+  }
+
+  .open .nav {
+    transform: translate(-100%, 0);
+  }
+
+  .open body {
+    position: fixed;
+    overflow: hidden;
+  }
+
+  .nav ul {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    height: 100%;
+    gap: 40px;
+    color: #fff;
+  }
+}
+
+/* ナビゲーションメニュー：PC */
+@media (min-width: 768px) {
+  .nav ul {
+    display: flex;
+    gap: 40px;
+    color: #707070;
+  }
+}
+
 /* ヒーロー */
 .hero {
   height: 650px;

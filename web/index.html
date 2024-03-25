@@ -18,12 +18,22 @@
     <header class="header">
       <div class="header-container w-container">
         <div class="site">
-          <img src="../img/logo.svg" alt="Boards" class="header__logo" width="135" height="26" />
+          <a href="index.html">
+            <img src="../img/logo.svg" alt="Boards" class="header__logo" width="135" height="26" />
+          </a>
         </div>
-        <button type="button" class="navBtn">
+        <button type="button" class="navBtn" onClick="document.querySelector('html').classList.toggle('open')">
           <i class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-xmark"></i>
           <span class="sr-only">Menu</span>
         </button>
+        <nav class="nav">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="content.html">サービス案内</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
 
